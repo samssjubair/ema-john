@@ -100,7 +100,7 @@ let history = useHistory();
   return (
     <div style={{textAlign: 'center'}}>
       {
-        user.isSignedIn? <button onClick={signOut}>Sign Out</button> : <button onClick={googleSignIn}>Sign In</button>
+        user.isSignedIn? <button onClick={signOut}>Sign Out</button> : <button onClick={googleSignIn}>Log in using Google</button>
       } <br/>
       <button onClick={facebookLogin}>Log in using facebook</button>
       {
@@ -110,7 +110,7 @@ let history = useHistory();
           <img src={user.image} alt=""/>
         </div>
       }
-      <h1>Authentication form</h1>
+      <h1>Let us know who you are!</h1>
       <input type="checkbox" name="newUser" onChange={()=>setNewUser(!newUser)}/>
       <label htmlFor="newUser">Sign Up</label>
       <form onSubmit={handleSubmit}>
@@ -123,9 +123,7 @@ let history = useHistory();
       {
         user.success && <p style={{color: 'green'}}>User is {newUser? 'Registered' : 'Logged In' } successfully</p>
       }
-      <h3>Name: {user.userName}</h3>
-      <h3>Email: {user.email}</h3>
-      <h3>Password: {user.password}</h3>
+      
     </div>
   );
 }
