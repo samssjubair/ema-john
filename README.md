@@ -1,8 +1,14 @@
-# Soccer-Pedia
+# Ema John
 
 ## Description
 
-It's a web application which is built using React Library and Material UI framework.
-You can learn about you favorite clubs and know their history, trophies, players and many other info easily.
+It's a knockoff of amazon. Tried to learn how to build a full stack website using MERN technology. 
 
 ### Netlify live website link:
+https://ema-john-samss.netlify.app/
+
+### Firebase live link:
+https://ema-john-2c7b2.web.app/
+
+### Backend(heroku) live link: 
+https://glacial-sea-32533.herokuapp.com/
