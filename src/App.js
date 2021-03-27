@@ -1,5 +1,4 @@
 import React, { createContext, useState } from 'react';
-
 import './App.css';
 import Header from './Components/Header/Header';
 import Shop from './Components/Shop/Shop';
@@ -17,9 +16,6 @@ function App() {
   const [loggedInUser,setLoggedInUser]= useState({});
   return(
     <UserContext.Provider value={[loggedInUser,setLoggedInUser]}>
-      
-      
-      
       <Router>
       <Header></Header>
         <Switch>

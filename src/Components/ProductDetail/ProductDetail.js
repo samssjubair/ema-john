@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import fakeData from '../../fakeData';
 import Product from '../Product/Product';
 
 const ProductDetail = () => {
     const {prodKey}= useParams();
-    const product= fakeData.find(pd=>pd.key===prodKey);
+    const [product,setProduct]= useState({});
+    useEffect(()=>{
+        fetch('https://glacial-sea-32533.herokuapp.com/product/'+prodKey)
+        .then(res=>res.json())
+        .then(data=>setProduct(data))
+    },[prodKey])
 
     return (
         <div>
