@@ -19,19 +19,20 @@ const Order = () => {
     
     useEffect(()=>{
         const savedCart=getDatabaseCart();
+        console.log(savedCart);
         const productKeys=Object.keys(savedCart);
-
+        console.log(productKeys);
         fetch('https://glacial-sea-32533.herokuapp.com/productByKeys',{
             method: 'POST',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify(productKeys)
         })
         .then(res=>res.json())
-        .then(data=>setCart(data))
+        .then(data=>{setCart(data);
+        console.log("data",data);})
         
-    },[]);
+    },[cart]);
     const handleDelete=(productKey)=>{
-        
         const newCart=cart.filter(p=>p.key!==productKey);
         setCart(newCart);
         removeFromDatabaseCart(productKey);

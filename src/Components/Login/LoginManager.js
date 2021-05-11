@@ -21,12 +21,20 @@ export const handleGoogleSignIn=()=>{
         image: photoURL,
         success: true
       }
+      setAuthToken();
       return signedInUser;
       
     })
     .catch((error)=>{
       console.log(error.message);
     })
+  }
+  const setAuthToken=()=>{
+    firebase.auth().currentUser.getIdToken(true).then(function(idToken) {
+      sessionStorage.setItem('token',idToken)
+    }).catch(function(error) {
+
+    });
   }
 
   export const handleSignOut=()=>{

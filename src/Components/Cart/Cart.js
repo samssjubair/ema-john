@@ -3,9 +3,12 @@ import React from 'react';
 import './Cart.css'
 
 const Cart = (props) => {
+    
     const fixed=n=>n.toFixed(2);
     const cart=props.cart;
-    const subTotal=cart.reduce((acc,prod)=>acc+=(prod.price*prod.quantity || 1),0);
+    
+    const subTotal=cart.reduce((acc,prod)=>acc+=(prod.price*(prod.quantity || 1)),0);
+    
     let shipping=0;
     if(subTotal>200){
         shipping=0;

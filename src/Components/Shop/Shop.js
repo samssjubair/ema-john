@@ -17,7 +17,10 @@ const Shop = () => {
             body: JSON.stringify(productKeys)
         })
         .then(res=>res.json())
-        .then(data=>setCart(data))
+        .then(data=>{
+            setCart(data);
+            console.log("cart", cart);
+        })
     },[])
     
     
@@ -27,9 +30,9 @@ const Shop = () => {
         .then(data=>{
             setProduct(data)
         })
-    },[products])
-    
-    // console.log(products);
+    },[])
+
+
     const cartClickHandler=(product)=>{
         const toBeAdded=product.key;
         const sameProduct=cart.find(pd=>pd.key===toBeAdded);
@@ -45,10 +48,12 @@ const Shop = () => {
             product.quantity=1;
             newCart=[...cart,product];  
         }
+        
         setCart(newCart);
         
         addToDatabaseCart(product.key,count);
     }
+
     return (
         <div className="shop-container">
             <div className="product-container">
@@ -70,7 +75,6 @@ const Shop = () => {
                     <Link to="/order">
                         <button className="cart-btn">Review Order</button>
                     </Link>
-                
                 </Cart>
             </div>
         </div>
