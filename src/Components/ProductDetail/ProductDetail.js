@@ -6,7 +6,7 @@ const ProductDetail = () => {
     const {prodKey}= useParams();
     const [product,setProduct]= useState({});
     useEffect(()=>{
-        fetch('https://glacial-sea-32533.herokuapp.com/product/'+prodKey)
+        fetch('https://ema-john-server.up.railway.app/product/'+prodKey)
         .then(res=>res.json())
         .then(data=>setProduct(data))
     },[prodKey])

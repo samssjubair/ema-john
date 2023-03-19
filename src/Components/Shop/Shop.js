@@ -11,7 +11,7 @@ const Shop = () => {
     useEffect(()=>{
         const savedCart=getDatabaseCart();
         const productKeys=Object.keys(savedCart);
-        fetch('https://glacial-sea-32533.herokuapp.com/productByKeys',{
+        fetch('https://ema-john-server.up.railway.app/productByKeys',{
             method: 'POST',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify(productKeys)
@@ -25,7 +25,7 @@ const Shop = () => {
     
     
     useEffect(()=>{
-        fetch('https://glacial-sea-32533.herokuapp.com/allProduct')
+        fetch('https://ema-john-server.up.railway.app/allProduct')
         .then(res=>res.json())
         .then(data=>{
             setProduct(data)

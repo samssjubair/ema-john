@@ -4,7 +4,7 @@ import fakeData from '../../fakeData';
 const Manage = () => {
     const handleAddProduct=()=>{
         const product={};
-        fetch('https://glacial-sea-32533.herokuapp.com/addProduct',{
+        fetch('https://ema-john-server.up.railway.app/addProduct',{
             method: 'POST',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify(product)

@@ -11,4 +11,4 @@ https://ema-john-samss.netlify.app/
 https://ema-john-2c7b2.web.app/
 
 ### Backend(heroku) live link: 
-https://glacial-sea-32533.herokuapp.com/
+https://ema-john-server.up.railway.app/

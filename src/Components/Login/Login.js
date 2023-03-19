@@ -98,33 +98,81 @@ let history = useHistory();
   }
   
   return (
-    <div style={{textAlign: 'center'}}>
-      {
-        user.isSignedIn? <button onClick={signOut}>Sign Out</button> : <button onClick={googleSignIn}>Log in using Google</button>
-      } <br/>
-      <button onClick={facebookLogin}>Log in using facebook</button>
-      {
-        user.isSignedIn && <div>
+    <div style={{marginTop: '15vh'}} className="container w-50">
+    <div className="text-center">
+      {user.isSignedIn ? (
+        <button className="btn btn-danger" onClick={signOut}>
+          Sign Out
+        </button>
+      ) : (
+        <button className="btn btn-warning mb-4" onClick={googleSignIn}>
+          Log in using Google
+        </button>
+      )} <br />
+      <button className="btn btn-warning" onClick={facebookLogin}>
+        Log in using Facebook
+      </button>
+      {user.isSignedIn && (
+        <div>
           <h2>{user.userName}</h2>
           <h3>{user.email}</h3>
-          <img src={user.image} alt=""/>
+          <img src={user.image} alt="" />
         </div>
-      }
+      )}
       <h1>Let us know who you are!</h1>
-      <input type="checkbox" name="newUser" onChange={()=>setNewUser(!newUser)}/>
-      <label htmlFor="newUser">Sign Up</label>
+      <input
+        className="form-check-input"
+        type="checkbox"
+        name="newUser"
+        onChange={() => setNewUser(!newUser)}
+      />
+      <label className="form-check-label" htmlFor="newUser">
+        Sign Up
+      </label>
       <form onSubmit={handleSubmit}>
-        {newUser && <input type="text" onBlur={handleBlur} name="userName" placeholder="Enter your name"/> }<br/>
-        <input type="text" name="email" onBlur={handleBlur} placeholder="Enter your email" required/> <br/>
-        <input type="password" name="password" onBlur={handleBlur} id="" placeholder="Enter your password" required/> <br/>
-        <input type="submit" value={newUser? 'Sign Up': 'Sign In'}/>
+        {newUser && (
+          <input
+            className="form-control"
+            type="text"
+            onBlur={handleBlur}
+            name="userName"
+            placeholder="Enter your name"
+          />
+        )} <br />
+        <input
+          className="form-control"
+          type="text"
+          name="email"
+          onBlur={handleBlur}
+          placeholder="Enter your email"
+          required
+        />{' '}
+        <br />
+        <input
+          className="form-control"
+          type="password"
+          name="password"
+          onBlur={handleBlur}
+          id=""
+          placeholder="Enter your password"
+          required
+        />{' '}
+        <br />
+        <input
+          className="btn btn-primary"
+          type="submit"
+          value={newUser ? 'Sign Up' : 'Sign In'}
+        />
       </form>
-      <p style={{color: 'red'}}>{user.error}</p>
-      {
-        user.success && <p style={{color: 'green'}}>User is {newUser? 'Registered' : 'Logged In' } successfully</p>
-      }
-      
+      <p style={{ color: 'red' }}>{user.error}</p>
+      {user.success && (
+        <p style={{ color: 'green' }}>
+          User is {newUser ? 'Registered' : 'Logged In'} successfully
+        </p>
+      )}
     </div>
+  </div>
+  
   );
 }
 

@@ -22,7 +22,7 @@ const Order = () => {
         console.log(savedCart);
         const productKeys=Object.keys(savedCart);
         console.log(productKeys);
-        fetch('https://glacial-sea-32533.herokuapp.com/productByKeys',{
+        fetch('https://ema-john-server.up.railway.app/productByKeys',{
             method: 'POST',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify(productKeys)

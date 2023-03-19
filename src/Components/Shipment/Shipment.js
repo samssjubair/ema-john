@@ -23,7 +23,7 @@ const Shipment = () => {
       shipment: shippingInfo,
       placedTime: new Date(),
     };
-    fetch("https://glacial-sea-32533.herokuapp.com/addOrder", {
+    fetch("https://ema-john-server.up.railway.app/addOrder", {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(orderDetail),
